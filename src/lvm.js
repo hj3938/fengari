@@ -9,7 +9,7 @@ const lobject     = require('./lobject.js');
 const lfunc       = require('./lfunc.js');
 const lstate      = require('./lstate.js');
 const lstring     = require('./lstring.js');
-const llimit      = require('./llimit.js');
+const llimit      = require('./llimits.js');
 const ldo         = require('./ldo.js');
 const ltm         = require('./ltm.js');
 const ltable      = require('./ltable.js');
@@ -726,10 +726,10 @@ const forlimit = function(obj, step) {
             return false;
 
         if (0 < n) {
-            ilimit = llimit.LUA_MAXINTEGER;
+            ilimit = luaconf.LUA_MAXINTEGER;
             if (step < 0) stopnow = true;
         } else {
-            ilimit = llimit.LUA_MININTEGER;
+            ilimit = luaconf.LUA_MININTEGER;
             if (step >= 0) stopnow = true;
         }
     }

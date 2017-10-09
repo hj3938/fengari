@@ -1,6 +1,6 @@
 "use strict";
 
-const llimit = require('./llimit.js');
+const llimit = require('./llimits.js');
 const sprintf = require('sprintf-js').sprintf;
 
 /*
@@ -64,14 +64,19 @@ const ldexp = function(mantissa, exponent) {
     return result;
 };
 
-module.exports.frexp                 = frexp;
-module.exports.ldexp                 = ldexp;
+const LUA_MAXINTEGER = 2147483647;
+const LUA_MININTEGER = -2147483648;
+
 module.exports.LUAI_MAXSTACK         = LUAI_MAXSTACK;
 module.exports.LUA_IDSIZE            = LUA_IDSIZE;
 module.exports.LUA_INTEGER_FMT       = LUA_INTEGER_FMT;
 module.exports.LUA_INTEGER_FRMLEN    = LUA_INTEGER_FRMLEN;
+module.exports.LUA_MAXINTEGER        = LUA_MAXINTEGER;
+module.exports.LUA_MININTEGER        = LUA_MININTEGER;
 module.exports.LUA_NUMBER_FMT        = LUA_NUMBER_FMT;
 module.exports.LUA_NUMBER_FRMLEN     = LUA_NUMBER_FRMLEN;
+module.exports.frexp                 = frexp;
+module.exports.ldexp                 = ldexp;
 module.exports.lua_getlocaledecpoint = lua_getlocaledecpoint;
 module.exports.lua_integer2str       = lua_integer2str;
 module.exports.lua_number2str        = lua_number2str;
